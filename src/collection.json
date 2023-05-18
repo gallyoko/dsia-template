@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "dsiaTemplate": {
+      "description": "A blank schematic.",
+      "factory": "./template/index#dsiaTemplate",
+      "schema": "./template/schema.json"
+    }
+  }
+}
