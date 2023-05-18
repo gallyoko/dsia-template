@@ -1,0 +1,100 @@
+<mat-toolbar id="toolbarListeN1">
+    <mat-toolbar-row class="toolbar-listeN1">
+        <div class="container-eye-listeN1" *ngIf="detailOpen && !listeProduitClosed">
+            <button mat-icon-button (click)="closeListeProduit()">
+                <mat-icon>visibility_off</mat-icon>
+            </button>
+        </div>
+        <div class="container-eye-listeN1 container-eye-listeN1-invisible" *ngIf="listeProduitClosed">
+            <button mat-icon-button (click)="openListeProduit()">
+                <mat-icon>visibility</mat-icon>
+            </button>
+        </div>
+
+        <span *ngIf="!listeProduitClosed && !listeProduitOpening && !firstCall" class="nb-result">{{ nbRows }} éléments liste
+            Produit</span>
+
+        <span></span>
+        <button mat-stroked-button [matMenuTriggerFor]="menuAction" *ngIf="!listeProduitClosed && !listeProduitOpening"
+            class="bouton-action">
+            Actions
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #menuAction="matMenu">
+            <button mat-menu-item (click)="ExportListeProduit(); $event.stopPropagation()" [disabled]="firstCall || !nbRows">
+                {{ 'CSF.CUSTOM_MAT_TABLE.MENUS.EXPORT_LABEL' | translate }}
+            </button>
+            <button mat-menu-item (click)="showHideColumn(); $event.stopPropagation()" [disabled]="firstCall">
+                {{ 'CSF.CUSTOM_MAT_TABLE.MENUS.HIDE_COLUMN_LABEL' | translate }}
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<ng-template #codeProduit let-element="element">
+    {{ element.codeProduit }}
+</ng-template>
+
+<ng-template #texte let-element="element">
+    {{ element.texte }}
+</ng-template>
+
+<ng-template #nombre let-element="element">
+    {{ element.nombre }}
+</ng-template>
+
+<ng-template #date let-element="element">
+    {{ formatDate(element.date) }}
+</ng-template>
+
+<ng-template #heure let-element="element">
+    {{ element.heure }}
+</ng-template>
+
+<ng-template #booleen let-element="element">
+    <mat-checkbox [checked]="element.booleen" disabled></mat-checkbox>
+</ng-template>
+
+<ng-template #buttonGroup let-element="element">
+    <div class="button-group-detail" *ngIf="selectedRow === element">
+        <button mat-icon-button color="primary" class="button-detail"
+            (click)="getDetailLigneProduit(element); $event.stopPropagation()">
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+
+        <div class="fleche-container">
+            <div class="fleche" [ngClass]="{ 'fleche-open-detail': detailOpen }">
+                <button mat-icon-button color="primary" class="button-more"
+                    [ngClass]="{ 'button-more-open-detail': detailOpen }" [matMenuTriggerFor]="linkMenu"
+                    (click)="$event.stopPropagation()">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <mat-menu #linkMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="link1Produit(element)" [disabled]="checkIfLink1Produit()">Lien 1 liste Produit</button>
+        <button mat-menu-item (click)="link2Produit(element)" [disabled]="checkIfLink2Produit()">Lien 2 liste Produit</button>
+    </mat-menu>
+</ng-template>
+
+<div *ngIf="templates && columns.length" class="table-content">
+    <ng-container>
+        <dsia-mat-data-table tableName="listeProduit"
+            [ngClass]="{ 'hide-container-data-table': listeProduitOpening || listeN1Closed }" [selectable]="true"
+            [provider]="provider" [templates]="templates" [isExternalModeServiceExport]="false" [paginatorRight]="true"
+            [columns]="columns" [autoLoad]="true" [nbRows]="nbRows" [settingButtonHidden]="true"
+            [showColumnCheckBox]="true" (onMatRowClick)="onRowSelect($event)"
+            (selectionChange)="onSelectionChange($event)" (afterSaveColumn)="updatePosition(false)"
+            (onLoadMore)="loadMore()">
+        </dsia-mat-data-table>
+    </ng-container>
+</div>
+
+<div class="position-init-screen" *ngIf="firstCall && !launchSearch">
+    <div class="container-init-screen">
+        <div class="message-init-screen">Veuillez effectuer une recherche pour afficher des éléments</div>
+    </div>
+</div>
+
+<span *ngIf="listeProduitClosed" class="title-listeN1-closed"> Liste Produit </span>

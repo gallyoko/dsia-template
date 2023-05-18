@@ -1,0 +1,36 @@
+<dsia-spinner [isLoading]="isLoading" message="Chargement.."> </dsia-spinner>
+
+<mat-toolbar id="toolbarTitle">
+  <mat-toolbar-row>
+    <dsia-navigation-retour [stockOnlyUrlInStorage]="false"></dsia-navigation-retour>
+    <span>Titre fonctionnalité lecture seule</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Contenu de la page -->
+<div class="dsia-container">
+  <dsia-criteria *ngIf="canBeLoaded && !criteriaDisabled" [requiredCriteria]="requiredCriteria"
+    [advancedCriteria]="advancedCriteria" [(criteriaControls)]="criteriaControls"
+    (onDialogSearch)="onDialogSearch($event)" (criteriaControlsChange)="onCriteriaControlsChange()"
+    (onFormReset)="onFormReset()" (onSearch)="onSearch()"></dsia-criteria>
+
+  <div class="main" [ngClass]="{ 'margin-top-main': criteriaDisabled }">
+    <mat-drawer-container class="sidenav-container" [hasBackdrop]="false">
+      <mat-drawer id="drawerLeftListeN1"
+        [ngClass]="{ 'left-sidenav': modeDetail, 'listeN1-closed': listeN1Closed, 'no-detail': !modeDetail }"
+        [mode]="'side'" opened>
+        <mat-card class="sidenav-card" id="listeN1Container">
+          <lib-liste-<%= dasherize(principalModelName) %> *ngIf="canBeLoaded" [criteriaControls]="criteriaControls" [arrayHeader]="arrayHeader"
+            [user]="user" (showDetail)="showDetail($event)"></lib-liste-<%= dasherize(principalModelName) %>>
+        </mat-card>
+      </mat-drawer>
+      <mat-drawer-content id="drawerRightDetailListeN1" class="right" [ngClass]="{
+          'right-detail': modeDetail,
+          'right-detail-listeN1-open': modeDetail && !listeN1Closed
+        }">
+        <lib-detail-<%= dasherize(principalModelName) %> *ngIf="tabs.length && modeDetail" [tabList]="tabs" [user]="user"
+          [<%= camelize(principalModelKey) %>]="<%= camelize(principalModelKey) %>"></lib-detail-<%= dasherize(principalModelName) %>>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

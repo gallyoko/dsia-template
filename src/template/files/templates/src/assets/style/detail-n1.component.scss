@@ -1,0 +1,241 @@
+@import 'lap-styles/component';
+
+:host {
+  ::ng-deep mat-toolbar-row {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+
+  ::ng-deep mat-tab-group mat-tab-header.mat-tab-header {
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+
+    div.mat-tab-label {
+      border: none !important;
+    }
+  }
+
+  .bouton-action {
+    margin-right: var(--padding);
+    border-color: inherit;
+    color: inherit;
+
+    &:hover:not([disabled]) {
+      color: var(--primary);
+    }
+
+    &[disabled] {
+      color: var(--primary);
+    }
+  }
+}
+
+.detail-card {
+  height: calc(100% - 64px);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  padding-top: 0;
+  padding-bottom: 0%;
+}
+
+.detail-tabs-content {
+  height: 100%;
+}
+
+.tabs {
+  height: 100%;
+  ::ng-deep mat-tab-body {
+    overflow-y: hidden;
+    width: 100%;
+    ::ng-deep div.mat-tab-body-content {
+      overflow-y: hidden;
+      width: 100%;
+    }
+  }
+}
+
+.toolbar-detail-listeN1 {
+  padding-left: 0;
+}
+
+::ng-deep div.mat-tab-label {
+  width: 50%;
+  background-color: var(--primary-300);
+}
+
+::ng-deep mat-tab-group mat-tab-header.mat-tab-header {
+  background-color: var(--primary-300);
+
+  .mat-tab-label {
+    .mat-tab-label-active {
+      background-color: white;
+    }
+
+    &:first-child {
+      border-top-left-radius: 0;
+    }
+    &:last-child {
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+mat-toolbar-row {
+  text-transform: none;
+
+  .title-listeN2 {
+    font-size: var(--paragraph-font-size);
+    font-weight: 700;
+    text-align: left;
+    padding-left: var(--padding);
+  }
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar-thumb {
+  background: var(--primary-700);
+  border-radius: 10px;
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-900);
+}
+
+::ng-deep div.mat-tab-body-content {
+  height: 100%;
+}
+
+::ng-deep div.mat-tab-body-wrapper {
+  height: 100%;
+}
+
+.container-synthese {
+  ::ng-deep div.mat-tab-body-content {
+    overflow-y: auto !important;
+  }
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.mat-drawer-listeN2 {
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  resize: horizontal;
+}
+
+.sidenav-container-listeN2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  background-color: var(--background);
+}
+
+.left-sidenav-listeN2 {
+  width: 50%;
+  height: 100%;
+  border-right: none;
+  transition: all 0.2s linear;
+  padding-right: var(--padding);
+  background-color: var(--background);
+}
+
+.listeN2-closed {
+  width: 80px !important;
+  resize: none;
+  transition: all 0.2s linear;
+  padding-right: calc(var(--padding) / 2);
+  background-color: var(--background);
+  border-right: none;
+}
+
+.title-listeN2-closed {
+  position: absolute;
+  top: 2px;
+  transform: rotate(-90deg);
+  font-family: var(--font-family);
+  font-size: var(--titre-blocs-font-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary-900);
+  height: 233px;
+  width: 243px;
+}
+
+::ng-deep mat-drawer-content.right-listeN2-detail {
+  background-color: var(--background);
+  height: 100%;
+  width: auto !important;
+  transition: all 0.2s linear;
+}
+
+::ng-deep mat-drawer-content.right-listeN2-detail-listeN2-close {
+  margin-left: calc(5% - 8px);
+  width: auto !important;
+  transition: all 0.2s linear;
+}
+
+::ng-deep mat-drawer-content.right-listeN2-detail-listeN2-open {
+  margin-left: 50%;
+  transition: all 0.2s linear;
+}
+
+::ng-deep mat-drawer.detail-listeN2-close-listeN1-close {
+  width: 100% !important;
+  transition: all 0.2s linear;
+}
+
+.no-detail-listeN2 {
+  width: 100% !important;
+  transition: all 0.2s linear;
+  resize: none;
+}
+
+.container-eye-listeN2 {
+  color: var(--primary-900);
+  background-color: var(--primary-400);
+  height: 64px;
+  width: 70px;
+  border-bottom-right-radius: 40px;
+
+  > button {
+    align-self: center;
+    width: 70px;
+    height: 64px;
+  }
+}
+
+.container-eye-listeN2-invisible {
+  border-top-right-radius: 40px;
+}
+
+.toolbar-detail-listeN1-listeN2-closed {
+  background-color: var(--on-primary);
+  border: 1px solid var(--background-dark);
+  border-bottom: none;
+  border-top-left-radius: 10px;
+}
+
+.no-border-top {
+  border-top: 0;
+}
+
+.listeN2-open {
+  resize: none;
+  box-sizing: unset;
+}
+
+.hide-container-detail-listeN1 {
+  visibility: hidden;
+}
