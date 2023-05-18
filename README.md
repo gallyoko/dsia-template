@@ -1,7 +1,6 @@
-# Getting Started With Schematics
+# Getting Started With DsiaTemplate
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to
-NPM.
+Ce dépôt permet de générer des écrans en répondant à quelques question ^^
 
 ### Auto build
 
