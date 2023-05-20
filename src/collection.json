@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "dsiaTemplate": {
-      "description": "A blank schematic.",
+      "description": "Generate template DSIA with schematic.",
       "factory": "./template/index#dsiaTemplate",
       "schema": "./template/schema.json"
     }

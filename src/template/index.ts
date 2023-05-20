@@ -12,9 +12,19 @@ export function dsiaTemplate(_options: Schema): Rule {
       template({
         ..._options,
         ...strings,
+        tolowercase,
+        touppercase,
       }),
     ]);
     // tree.create('example.js', `console.log('Hello ${name} !');`);
     return mergeWith(sourceParametrizedTemplates)(tree, _context);
   };
+}
+
+export function tolowercase(value: string): string {
+  return value.toLowerCase();
+}
+
+export function touppercase(value: string): string {
+  return value.toUpperCase();
 }

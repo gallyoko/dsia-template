@@ -87,9 +87,9 @@
     }
   },
   "GENERIC": {
-    "TEMPLATE": {
+    "<%= touppercase(underscore(componentName)) %>": {
       "TITLE": {
-        "FONCTION": "Titre fonctionnalité",
+        "FONCTION": "<%= capitalize(componentName) %>",
         "CONFIRMATION": "Confirmation"
       },
       "CONTEXT": {
