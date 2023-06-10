@@ -1,8 +1,8 @@
 {
-  "listeN1": {
+  "<%= camelize(componentName) %><%= classify(principalModelName) %>": {
     "criteriaField": [
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.KEY_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.KEY_FIELD",
         "type": "text",
         "fieldId": "uniqId",
         "viewId": "uniqIdCriteria",
@@ -14,7 +14,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.MONO_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.MONO_LIST",
         "type": "list",
         "fieldId": "codeMono",
         "isKeyField": false,
@@ -26,7 +26,7 @@
         "inputValidityOptions": { "required": true }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.DATE_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DATE_FIELD",
         "type": "date",
         "fieldId": "dateDebut",
         "viewId": "dateDebutCriteria",
@@ -36,7 +36,7 @@
         "inputValidityOptions": { "required": true }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.HOUR_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.HOUR_FIELD",
         "type": "hour",
         "fieldId": "heureDebut",
         "viewId": "heureDebutCriteria",
@@ -46,7 +46,7 @@
         "advanced": false
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.MULTI_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.MULTI_LIST",
         "type": "listmulti",
         "fieldId": "codeMulti",
         "isKeyField": false,
@@ -57,7 +57,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.POPIN_MONO_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.POPIN_MONO_LIST",
         "type": "list",
         "fieldId": "codePopinMono",
         "isKeyField": false,
@@ -66,15 +66,15 @@
         "listOptions": {
           "listType": "dialog",
           "dialogOptions": {
-            "title": "GENERIC.TEMPLATE.CONTEXT.TITLE_POPIN_MONO",
+            "title": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TITLE_POPIN_MONO",
             "columns": [
               {
                 "key": "code",
-                "label": "GENERIC.TEMPLATE.CONTEXT.CODE_POPIN_MONO"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CODE_POPIN_MONO"
               },
               {
                 "key": "libelle",
-                "label": "GENERIC.TEMPLATE.CONTEXT.LABEL_POPIN_MONO"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.LABEL_POPIN_MONO"
               }
             ]
           },
@@ -82,7 +82,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.POPIN_MULTI_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.POPIN_MULTI_LIST",
         "type": "listmulti",
         "fieldId": "codePopinMulti",
         "isKeyField": false,
@@ -91,15 +91,15 @@
         "listOptions": {
           "listType": "dialog",
           "dialogOptions": {
-            "title": "GENERIC.TEMPLATE.CONTEXT.TITLE_POPIN_MULTI",
+            "title": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TITLE_POPIN_MULTI",
             "columns": [
               {
                 "key": "code",
-                "label": "GENERIC.TEMPLATE.CONTEXT.CODE_POPIN_MULTI"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CODE_POPIN_MULTI"
               },
               {
                 "key": "libelle",
-                "label": "GENERIC.TEMPLATE.CONTEXT.LABEL_POPIN_MULTI"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.LABEL_POPIN_MULTI"
               }
             ]
           },
@@ -107,7 +107,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.TOGGLE_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TOGGLE_FIELD",
         "type": "toggle",
         "fieldId": "toggle",
         "isKeyField": false,
@@ -115,7 +115,7 @@
         "advanced": true
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.DOUBLE_HOUR_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DOUBLE_HOUR_FIELD",
         "type": "doublehour",
         "fieldId": "doubleHeureDebut",
         "fieldId2": "doubleHeureFin",
@@ -126,7 +126,7 @@
         "advanced": true
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.ANORMAL_HOUR_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.ANORMAL_HOUR_FIELD",
         "type": "anormalHour",
         "fieldId": "anormalHour",
         "isKeyField": false,
@@ -134,7 +134,7 @@
         "advanced": true
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.CHECKBOX_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CHECKBOX_FIELD",
         "type": "checkbox",
         "fieldId": "checkbox",
         "isKeyField": false,
@@ -145,13 +145,13 @@
     "tabs": [
       {
         "fieldId": "tab1",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.TAB1",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TAB1",
         "label": "",
         "order": 1
       },
       {
         "fieldId": "tab2",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.TAB2",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TAB2",
         "label": "",
         "order": 2
       }
@@ -159,7 +159,7 @@
     "arrayHeader": [
       {
         "fieldId": "uniqId",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.UNIQ_ID",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.UNIQ_ID",
         "label": "",
         "order": 1,
         "minWidth": "60px",
@@ -167,7 +167,7 @@
       },
       {
         "fieldId": "texte",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.TEXT",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TEXT",
         "label": "",
         "order": 2,
         "minWidth": "120px",
@@ -175,7 +175,7 @@
       },
       {
         "fieldId": "nombre",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.NUMBER",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.NUMBER",
         "label": "",
         "order": 3,
         "type": "numeric",
@@ -184,7 +184,7 @@
       },
       {
         "fieldId": "date",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.DATE",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DATE",
         "label": "",
         "order": 4,
         "type": "date",
@@ -193,7 +193,7 @@
       },
       {
         "fieldId": "heure",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.HOUR",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.HOUR",
         "label": "",
         "order": 5,
         "minWidth": "120px",
@@ -201,7 +201,7 @@
       },
       {
         "fieldId": "booleen",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.BOOLEAN",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.BOOLEAN",
         "label": "",
         "order": 6,
         "type": "boolean",
@@ -212,12 +212,12 @@
     "detailLabels": [],
     "criteria": []
   },
-  "listeN2": {
+  "<%= camelize(componentName) %><%= classify(secondModelName) %>": {
     "criteriaField": [],
     "tabs": [
       {
         "fieldId": "tab1",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.TAB1",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TAB1",
         "label": "",
         "order": 1
       }
@@ -225,7 +225,7 @@
     "arrayHeader": [
       {
         "fieldId": "uniqId",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.UNIQ_ID",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.UNIQ_ID",
         "label": "",
         "order": 1,
         "minWidth": "60px",
@@ -233,7 +233,7 @@
       },
       {
         "fieldId": "texte",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.TEXT",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TEXT",
         "label": "",
         "order": 2,
         "minWidth": "120px",
@@ -241,7 +241,7 @@
       },
       {
         "fieldId": "nombre",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.NUMBER",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.NUMBER",
         "label": "",
         "order": 3,
         "type": "numeric",
@@ -250,7 +250,7 @@
       },
       {
         "fieldId": "date",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.DATE",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DATE",
         "label": "",
         "order": 4,
         "type": "date",
@@ -259,7 +259,7 @@
       },
       {
         "fieldId": "heure",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.HOUR",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.HOUR",
         "label": "",
         "order": 5,
         "minWidth": "120px",
@@ -267,7 +267,7 @@
       },
       {
         "fieldId": "booleen",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.BOOLEAN",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.BOOLEAN",
         "label": "",
         "order": 6,
         "type": "boolean",
@@ -281,7 +281,7 @@
   "listeN1CrudSimple": {
     "criteriaField": [
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.KEY_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.KEY_FIELD",
         "type": "text",
         "fieldId": "uniqId",
         "viewId": "uniqIdCriteria",
@@ -293,7 +293,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.MONO_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.MONO_LIST",
         "type": "list",
         "fieldId": "codeMono",
         "isKeyField": false,
@@ -305,7 +305,7 @@
         "inputValidityOptions": { "required": true }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.DATE_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DATE_FIELD",
         "type": "date",
         "fieldId": "dateDebut",
         "viewId": "dateDebutCriteria",
@@ -315,7 +315,7 @@
         "inputValidityOptions": { "required": true }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.HOUR_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.HOUR_FIELD",
         "type": "hour",
         "fieldId": "heureDebut",
         "viewId": "heureDebutCriteria",
@@ -325,7 +325,7 @@
         "advanced": false
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.MULTI_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.MULTI_LIST",
         "type": "listmulti",
         "fieldId": "codeMulti",
         "isKeyField": false,
@@ -336,7 +336,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.POPIN_MONO_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.POPIN_MONO_LIST",
         "type": "list",
         "fieldId": "codePopinMono",
         "isKeyField": false,
@@ -345,15 +345,15 @@
         "listOptions": {
           "listType": "dialog",
           "dialogOptions": {
-            "title": "GENERIC.TEMPLATE.CONTEXT.TITLE_POPIN_MONO",
+            "title": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TITLE_POPIN_MONO",
             "columns": [
               {
                 "key": "code",
-                "label": "GENERIC.TEMPLATE.CONTEXT.CODE_POPIN_MONO"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CODE_POPIN_MONO"
               },
               {
                 "key": "libelle",
-                "label": "GENERIC.TEMPLATE.CONTEXT.LABEL_POPIN_MONO"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.LABEL_POPIN_MONO"
               }
             ]
           },
@@ -361,7 +361,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.POPIN_MULTI_LIST",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.POPIN_MULTI_LIST",
         "type": "listmulti",
         "fieldId": "codePopinMulti",
         "isKeyField": false,
@@ -370,15 +370,15 @@
         "listOptions": {
           "listType": "dialog",
           "dialogOptions": {
-            "title": "GENERIC.TEMPLATE.CONTEXT.TITLE_POPIN_MULTI",
+            "title": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TITLE_POPIN_MULTI",
             "columns": [
               {
                 "key": "code",
-                "label": "GENERIC.TEMPLATE.CONTEXT.CODE_POPIN_MULTI"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CODE_POPIN_MULTI"
               },
               {
                 "key": "libelle",
-                "label": "GENERIC.TEMPLATE.CONTEXT.LABEL_POPIN_MULTI"
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.LABEL_POPIN_MULTI"
               }
             ]
           },
@@ -386,7 +386,7 @@
         }
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.TOGGLE_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TOGGLE_FIELD",
         "type": "toggle",
         "fieldId": "toggle",
         "isKeyField": false,
@@ -394,7 +394,7 @@
         "advanced": true
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.DOUBLE_HOUR_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DOUBLE_HOUR_FIELD",
         "type": "doublehour",
         "fieldId": "doubleHeureDebut",
         "fieldId2": "doubleHeureFin",
@@ -405,7 +405,7 @@
         "advanced": true
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.ANORMAL_HOUR_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.ANORMAL_HOUR_FIELD",
         "type": "anormalHour",
         "fieldId": "anormalHour",
         "isKeyField": false,
@@ -413,7 +413,7 @@
         "advanced": true
       },
       {
-        "label": "GENERIC.TEMPLATE.CONTEXT.CHECKBOX_FIELD",
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CHECKBOX_FIELD",
         "type": "checkbox",
         "fieldId": "checkbox",
         "isKeyField": false,
@@ -424,7 +424,7 @@
     "tabs": [
       {
         "fieldId": "tab1",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.TAB1",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TAB1",
         "label": "",
         "order": 1
       }
@@ -432,7 +432,7 @@
     "arrayHeader": [
       {
         "fieldId": "uniqId",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.UNIQ_ID",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.UNIQ_ID",
         "label": "",
         "order": 1,
         "minWidth": "60px",
@@ -440,7 +440,7 @@
       },
       {
         "fieldId": "texte",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.TEXT",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TEXT",
         "label": "",
         "order": 2,
         "minWidth": "120px",
@@ -448,7 +448,7 @@
       },
       {
         "fieldId": "nombre",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.NUMBER",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.NUMBER",
         "label": "",
         "order": 3,
         "type": "numeric",
@@ -457,7 +457,7 @@
       },
       {
         "fieldId": "date",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.DATE",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DATE",
         "label": "",
         "order": 4,
         "type": "date",
@@ -466,7 +466,7 @@
       },
       {
         "fieldId": "heure",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.HOUR",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.HOUR",
         "label": "",
         "order": 5,
         "minWidth": "120px",
@@ -474,7 +474,7 @@
       },
       {
         "fieldId": "booleen",
-        "labelToTranslate": "GENERIC.TEMPLATE.CONTEXT.BOOLEAN",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.BOOLEAN",
         "label": "",
         "order": 6,
         "type": "boolean",

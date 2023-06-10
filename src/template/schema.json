@@ -5,6 +5,24 @@
   "type": "object",
   "description": "Création de template",
   "properties": {
+    "moduleGitName": {
+      "type": "string",
+      "description": "Nom du module git",
+      "$defaut": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Nom du module git"
+    },
+    "moduleI18nName": {
+      "type": "string",
+      "description": "Nom du module I18n",
+      "$defaut": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Nom du module I18n"
+    },
     "componentName": {
       "type": "string",
       "description": "Nom du composant",

@@ -17,7 +17,7 @@
         <span></span>
         <button mat-stroked-button [matMenuTriggerFor]="menuAction" *ngIf="!liste<%= classify(principalModelName) %>Closed && !liste<%= classify(principalModelName) %>Opening"
             class="bouton-action">
-            Actions
+            {{ '<%= touppercase(underscore(moduleI18nName)) %>.BUTTON.ACTIONS' | translate }}
             <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
         <mat-menu #menuAction="matMenu">
@@ -81,7 +81,7 @@
 <div *ngIf="templates && columns.length" class="table-content">
     <ng-container>
         <dsia-mat-data-table tableName="liste<%= classify(principalModelName) %>"
-            [ngClass]="{ 'hide-container-data-table': liste<%= classify(principalModelName) %>Opening || listeN1Closed }" [selectable]="true"
+            [ngClass]="{ 'hide-container-data-table': liste<%= classify(principalModelName) %>Opening || liste<%= classify(principalModelName) %>Closed }" [selectable]="true"
             [provider]="provider" [templates]="templates" [isExternalModeServiceExport]="false" [paginatorRight]="true"
             [columns]="columns" [autoLoad]="true" [nbRows]="nbRows" [settingButtonHidden]="true"
             [showColumnCheckBox]="true" (onMatRowClick)="onRowSelect($event)"
@@ -93,7 +93,7 @@
 
 <div class="position-init-screen" *ngIf="firstCall && !launchSearch">
     <div class="container-init-screen">
-        <div class="message-init-screen">Veuillez effectuer une recherche pour afficher des éléments</div>
+        <div class="message-init-screen">{{ '<%= touppercase(underscore(moduleI18nName)) %>.MESSAGE.INIT_SCREEN_READONLY' | translate }}</div>
     </div>
 </div>
 

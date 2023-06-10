@@ -15,7 +15,7 @@ import { Column, COLUMN_TYPE, ExportFile, Provider } from '@dsia/mat-data-table'
 import { Criteria, InfoLevelData, NavigationRetourService } from '@dsia/navigation-retour';
 import { Level, NotificationsService, Type } from '@dsia/notifications';
 import { Header } from '@dsia/wms-common';
-import { LanguageService, User } from '@lap';
+import { LanguageService, User, HeaderSelectorService } from '@lap';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import { Subject } from 'rxjs';
@@ -87,6 +87,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     private readonly liste<%= classify(secondModelName) %>Service: Liste<%= classify(secondModelName) %>Service,
     private readonly languageService: LanguageService,
     private readonly commonService: CommonService,
+    private readonly headerSelectorService: HeaderSelectorService,
     <% if (hasLinkTo) { %>private readonly navigationRetourService: NavigationRetourService,<% } %>
   ) {}
 
@@ -158,7 +159,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     if (this.criteriaControls.find(control => !!control.criteria?.inputValidityOptions?.required && !control.value)) {
       this.notificationService.push(
         '',
-        this.translate.instant('GENERIC.TEMPLATE.NOTIFICATION.ERROR_REQUIRED_CRITERIA'),
+        this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.ERROR_REQUIRED_CRITERIA'),
         Level.ERROR,
         Type.FOOTER,
         null,
@@ -177,7 +178,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
       if (dateMin > dateMax) {
         this.notificationService.push(
           '',
-          this.translate.instant('PREPARATION.LANCEMENT_PREPA.NOTIFICATION.ERROR_DATE_MIN_MAX'),
+          this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.ERROR_DATE_MIN_MAX'),
           Level.ERROR,
           Type.FOOTER,
           null,
@@ -202,14 +203,13 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     <% } %>
     
     this.messageNotification = modeExport
-    ? this.translate.instant('COMMAND.SYNTHESE_COMMANDE.NOTIFICATION.CURRENT_EXPORT')
-    : this.translate.instant('COMMAND.SYNTHESE_COMMANDE.NOTIFICATION.CURRENT_SEARCHING');
+    ? this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.CURRENT_EXPORT')
+    : this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.CURRENT_SEARCHING');
     this.<%= camelize(componentName) %>Service.loading$.next(true);
 
     this.liste<%= classify(principalModelName) %>Service
     .getLignes<%= classify(principalModelName) %>(
-        this.user.context['idsite'],
-        this.user.context['do'],
+        this.headerSelectorService.get('site'), this.headerSelectorService.get('do')
         this.criteriaControls,
         modeExport ? LIMIT_EXPORT_LISTE_<%= classify(principalModelName) %> : PAGE_SIZE_LISTE_<%= classify(principalModelName) %>,
         <% if (hasPagination) { %>nextRowId<% } %>
@@ -234,7 +234,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     if (!res.liste<%= classify(principalModelName) %>.length) {
       this.notificationService.push(
         '',
-        this.translate.instant('GENERIC.TEMPLATE.NOTIFICATION.NO_RESULT_SEARCH'),
+        this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.NO_RESULT_SEARCH'),
         Level.INFO,
         Type.FOOTER,
         null,
@@ -246,7 +246,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
       if (this.nbRows > LIMIT_EXPORT_LISTE_<%= classify(principalModelName) %>) {
         this.notificationService.push(
           '',
-          this.translate.instant('COMMAND.SYNTHESE_COMMANDE.NOTIFICATION.LIMIT_EXPORT', {
+          this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.LIMIT_EXPORT', {
             nbLimit: LIMIT_EXPORT_LISTE_<%= classify(principalModelName) %>,
             nbMax: this.nbRows,
           }),

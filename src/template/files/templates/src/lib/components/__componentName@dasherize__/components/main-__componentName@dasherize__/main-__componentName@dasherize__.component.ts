@@ -6,7 +6,7 @@ import { MenuItem, MenuNavigationService } from '@dsia/menu-navigation';
 import { NavigationRetourService } from '@dsia/navigation-retour';
 import { Level, NotificationsService, Type } from '@dsia/notifications';
 import { ContextService, Header, Tab, TypeContext } from '@dsia/wms-common';
-import { User, UserService } from '@lap';
+import { User, UserService, HeaderSelectorService } from '@lap';
 import { TranslateService } from '@ngx-translate/core';
 import { cloneDeep } from 'lodash';
 import { Observable, Subject } from 'rxjs';
@@ -69,6 +69,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
     private readonly liste<%= classify(principalModelName) %>Service: Liste<%= classify(principalModelName) %>Service,
     private readonly liste<%= classify(secondModelName) %>Service: Liste<%= classify(secondModelName) %>Service,
     private readonly menuNavigationService: MenuNavigationService,
+    private readonly headerSelectorService: HeaderSelectorService,
     <% if (hasLinkTo) { %>private readonly navigationRetourService: NavigationRetourService,<% } %>
     private readonly route: ActivatedRoute,
     private readonly router: Router
@@ -123,7 +124,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
         this.<%= camelize(principalModelKey) %> = params['<%= camelize(principalModelKey) %>'] || '';
       }
       <% } %>
-      this.messageNotification = 'GENERIC.TEMPLATE.NOTIFICATION.CURRENT_LOADING';
+      this.messageNotification = '<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.CURRENT_LOADING';
       this.isLoading = true;
       this.userService.getUserConnected().then((user: User) => {
         this.user = user;
@@ -135,7 +136,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
   /* Initialisation des différentes listes de la fonction */
   private initList(): void {
     this.<%= camelize(componentName) %>Service
-      .getInitData(this.user.context['idsite'], this.user.context['do'])
+      .getInitData(this.headerSelectorService.get('site'), this.headerSelectorService.get('do'))
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         () => this.initContextualisation(),
@@ -143,7 +144,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
           this.isLoading = false;
           this.notificationService.push(
             '',
-            this.translate.instant('GENERIC.TEMPLATE.NOTIFICATION.ERROR_INIT_DATA'),
+            this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.ERROR_INIT_DATA'),
             Level.ERROR,
             Type.FOOTER,
             null,
@@ -158,19 +159,19 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
   private initContextualisation(): void {
     this.contextService
       .getContext({
-        userSite: this.user.context['idsite'],
-        userDo: this.user.context['do'],
-        contextPath: 'projects/generic/src/assets/context',
-        screen: 'listeN1',
+        userSite: this.headerSelectorService.get('site'),
+        userDo: this.headerSelectorService.get('do'),
+        contextPath: 'projects/<%= moduleGitName %>/src/assets/context',
+        screen: '<%= camelize(componentName) %><%= classify(principalModelName) %>',
       })
       .then((context: TypeContext) => this.afterGetContext(context));
 
     this.contextService
       .getContext({
-        userSite: this.user.context['idsite'],
-        userDo: this.user.context['do'],
-        contextPath: 'projects/generic/src/assets/context',
-        screen: 'listeN2',
+        userSite: this.headerSelectorService.get('site'),
+        userDo: this.headerSelectorService.get('do'),
+        contextPath: 'projects/<%= moduleGitName %>/src/assets/context',
+        screen: '<%= camelize(componentName) %><%= classify(secondModelName) %>',
       })
       .then((context: TypeContext) => (this.liste<%= classify(secondModelName) %>Service.context = context));
   }
@@ -325,11 +326,11 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
   public onDialogSearch(event): void {
     let service = null;
     if (event.fieldId === 'codePopinMono') {
-      service = this.listeAideService.getPopinMono(this.user.context['idsite'], this.user.context['do']);
+      service = this.listeAideService.getPopinMono(this.headerSelectorService.get('site'), this.headerSelectorService.get('do'));
     }
 
     if (event.fieldId === 'codePopinMulti') {
-      service = this.listeAideService.getPopinMulti(this.user.context['idsite'], this.user.context['do']);
+      service = this.listeAideService.getPopinMulti(this.headerSelectorService.get('site'), this.headerSelectorService.get('do'));
     }
 
     this.callServiceList(service, event.fieldId);
@@ -347,7 +348,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
           this.inputsService.isListDataLoaded.emit({ fieldId: fieldId, data: [] });
           this.notificationService.push(
             '',
-            this.translate.instant('GENERIC.TEMPLATE.NOTIFICATION.ERROR_LOAD_LIST'),
+            this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.ERROR_LOAD_LIST'),
             Level.ERROR,
             Type.FOOTER,
             null,
@@ -368,7 +369,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
     this.<%= camelize(principalModelKey) %> = <%= camelize(principalModelKey) %>;
     this.modeDetail = true;
     this.liste<%= classify(principalModelName) %>Closed = false;
-    this.resizeContainer = new ResizeContainer('drawerLeftListeN1', 'drawerRightDetailListeN1');
+    this.resizeContainer = new ResizeContainer('drawerLeftListe<%= classify(principalModelName) %>', 'drawerRightDetailListe<%= classify(principalModelName) %>');
     this.resizeContainer.startListener();
   }
 

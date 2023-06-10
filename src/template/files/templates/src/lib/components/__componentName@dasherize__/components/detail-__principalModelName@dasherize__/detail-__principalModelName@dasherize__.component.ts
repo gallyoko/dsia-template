@@ -9,7 +9,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Tab } from '@dsia/wms-common';
-import { User } from '@lap';
+import { User, HeaderSelectorService } from '@lap';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ResizeContainer } from '../../../../services/resize-container';
@@ -36,13 +36,14 @@ export class Detail<%= classify(principalModelName) %>Component implements OnIni
   public tabsDetail<%= classify(secondModelName) %>: Tab[] = [];
   public modeDetail<%= classify(secondModelName) %> = false;
   public liste<%= classify(secondModelName) %>Closed = false;
-  public uniqId<%= classify(secondModelName) %>: string;
+  public <%= camelize(secondModelKey) %>: string;
   public isLoading = false;
   public <%= camelize(principalModelName) %>: <%= classify(principalModelName) %>;
 
   constructor(
     private readonly liste<%= classify(principalModelName) %>Service: Liste<%= classify(principalModelName) %>Service,
     private readonly liste<%= classify(secondModelName) %>Service: Liste<%= classify(secondModelName) %>Service,
+    private readonly headerSelectorService: HeaderSelectorService,
     private readonly cdr: ChangeDetectorRef
   ) {}
 
@@ -89,7 +90,7 @@ export class Detail<%= classify(principalModelName) %>Component implements OnIni
       }
 
       this.liste<%= classify(principalModelName) %>Service
-        .getDetail(this.user.context['idsite'], this.user.context['do'], this.<%= camelize(principalModelKey) %>)
+        .getDetail(this.headerSelectorService.get('site'), this.headerSelectorService.get('do'), this.<%= camelize(principalModelKey) %>)
         .pipe(takeUntil(this.destroy$))
         .subscribe(
           (detail: <%= classify(principalModelName) %>) => {
@@ -135,10 +136,10 @@ export class Detail<%= classify(principalModelName) %>Component implements OnIni
     }
   }
 
-  public showDetailListe<%= classify(secondModelName) %>(uniqId<%= classify(secondModelName) %>: string): void {
+  public showDetailListe<%= classify(secondModelName) %>(<%= camelize(secondModelKey) %>: string): void {
     this.resizeContainer.startListener();
     this.modeDetail<%= classify(secondModelName) %> = true;
-    this.uniqId<%= classify(secondModelName) %> = uniqId<%= classify(secondModelName) %>;
+    this.<%= camelize(secondModelKey) %> = <%= camelize(secondModelKey) %>;
     this.tabList.forEach(element => {
       if (element.order > 1) {
         element['disabled'] = true;

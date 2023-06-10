@@ -1,4 +1,6 @@
 export interface Schema {
+  moduleGitName: string;
+  moduleI18nName: string;
   componentName: string;
   principalModelName: string;
   principalModelKey: string;

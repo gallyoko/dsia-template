@@ -86,7 +86,7 @@
       }
     }
   },
-  "GENERIC": {
+  "<%= touppercase(underscore(moduleI18nName)) %>": {
     "<%= touppercase(underscore(componentName)) %>": {
       "TITLE": {
         "FONCTION": "<%= capitalize(componentName) %>",
@@ -145,15 +145,18 @@
         "ERROR_REQUIRED_CRITERIA": "Le ou les champs obligatoires ne sont pas renseignés",
         "ERROR_LOAD_LIST": "Erreur lors du chargement de la liste"
       },
-      "BUTTON": {
-        "CREATE": "Créer",
-        "CANCEL": "Annuler",
-        "SAVE": "Enregistrer",
-        "ACTIONS": "Actions"
-      },
       "MESSAGE_CONFIRM_DELETE": "Etes-vous certain de vouloir supprimer cet élément ?",
-      "MESSAGE_CONFIRM_DELETE_MULTI": "Etes-vous certain de vouloir supprimer ces éléments ?",
-      "MESSAGE_CONFIRM_DIALOG": "Vos modifications vont être perdues. Souhaitez-vous abandonner ?"
+      "MESSAGE_CONFIRM_DELETE_MULTI": "Etes-vous certain de vouloir supprimer ces éléments ?"
+    },
+    "MESSAGE": {
+      "CONFIRM_DIALOG": "Vos modifications vont être perdues. Souhaitez-vous abandonner ?",
+      "INIT_SCREEN_READONLY": "Veuillez effectuer une recherche pour afficher des éléments"
+    },
+    "BUTTON": {
+      "CREATE": "Créer",
+      "CANCEL": "Annuler",
+      "SAVE": "Enregistrer",
+      "ACTIONS": "Actions"
     }
   }
 }
