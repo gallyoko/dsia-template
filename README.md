@@ -1,6 +1,6 @@
 # Getting Started With DsiaTemplate
 
-Ce dépôt permet de générer des écrans en répondant à quelques question ^^
+Ce dépôt permet de générer des écrans en répondant à quelques questions ^^
 
 ### Auto build
 
