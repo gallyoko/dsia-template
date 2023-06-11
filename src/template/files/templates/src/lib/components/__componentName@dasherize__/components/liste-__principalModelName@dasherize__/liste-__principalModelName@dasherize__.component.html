@@ -21,7 +21,7 @@
             <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
         <mat-menu #menuAction="matMenu">
-            <button mat-menu-item (click)="ExportListe<%= classify(principalModelName) %>(); $event.stopPropagation()" [disabled]="firstCall || !nbRows">
+            <button mat-menu-item (click)="exportListe<%= classify(principalModelName) %>(); $event.stopPropagation()" [disabled]="firstCall || !nbRows">
                 {{ 'CSF.CUSTOM_MAT_TABLE.MENUS.EXPORT_LABEL' | translate }}
             </button>
             <button mat-menu-item (click)="showHideColumn(); $event.stopPropagation()" [disabled]="firstCall">
@@ -81,12 +81,25 @@
 <div *ngIf="templates && columns.length" class="table-content">
     <ng-container>
         <dsia-mat-data-table tableName="liste<%= classify(principalModelName) %>"
-            [ngClass]="{ 'hide-container-data-table': liste<%= classify(principalModelName) %>Opening || liste<%= classify(principalModelName) %>Closed }" [selectable]="true"
-            [provider]="provider" [templates]="templates" [isExternalModeServiceExport]="false" [paginatorRight]="true"
-            [columns]="columns" [autoLoad]="true" [nbRows]="nbRows" [settingButtonHidden]="true"
-            [showColumnCheckBox]="true" (onMatRowClick)="onRowSelect($event)"
-            (selectionChange)="onSelectionChange($event)" (afterSaveColumn)="updatePosition(false)"
-            (onLoadMore)="loadMore()">
+            [ngClass]="{ 'hide-container-data-table': liste<%= classify(principalModelName) %>Opening || liste<%= classify(principalModelName) %>Closed }" 
+            [selectable]="true"
+            [provider]="provider" 
+            [templates]="templates" 
+            [isExternalModeServiceExport]="false" 
+            [paginatorRight]="true"
+            [columns]="columns" 
+            [autoLoad]="true" 
+            [nbRows]="nbRows" 
+            [settingButtonHidden]="true"
+            [showColumnCheckBox]="true" 
+            <% if (hasPagination) { %>[interceptSort]="noAllData"<% } %>
+            [userId]="user?.id"
+            [savePreferenceBdd]="true"
+            (onMatRowClick)="onRowSelect($event)"
+            (selectionChange)="onSelectionChange($event)" 
+            (afterSaveColumn)="updatePosition(false)"
+            (onLoadMore)="loadMore()"
+            (userPreferenceLoaded)="userPreferenceLoaded()">
         </dsia-mat-data-table>
     </ng-container>
 </div>
