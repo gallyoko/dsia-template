@@ -65,6 +65,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
   private updatePagination = false;
   public ligne<%= classify(principalModelName) %>Checked: <%= classify(principalModelName) %>Light[] = [];
   private registeredRows: Array<{ index: number; data: any }> = new Array<{ index: number; data: any }>();
+  public noAllData = true;
 
   public messageNotification = '';
 
@@ -88,6 +89,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     private readonly languageService: LanguageService,
     private readonly commonService: CommonService,
     private readonly headerSelectorService: HeaderSelectorService,
+    private readonly dialog: MatDialog,
     <% if (hasLinkTo) { %>private readonly navigationRetourService: NavigationRetourService,<% } %>
   ) {}
 
@@ -116,7 +118,9 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
           this.refreshListe<%= classify(principalModelName) %>();
         } else {
         <% } %>
+          this.noAllData = true;
           this.search<%= classify(principalModelName) %>(<% if (hasPagination) { %>this.nextRowId<% } %>);
+          this.provider.scrollToIndex$.next({ index: 0 });
         <% if (hasLinkTo) { %>
         }
         <% } %>
@@ -147,6 +151,24 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
   ngAfterViewInit(): void {
     this.initColumn();
     this.cdr.detectChanges();
+  }
+
+  public userPreferenceLoaded(): void {
+    <% if (hasPagination) { %>
+    const previousInfoList: InfoLevelData = this.navigationRetourService.getLevelInfoListPileNavigation(1);
+    if (previousInfoList && previousInfoList.list.length) {
+      this.<%= camelize(componentName) %>Service.loading$.next(true);
+      this.liste<%= classify(principalModelName) %> = previousInfoList.list;
+      this.nbRows = Number(previousInfoList.totalNbRows);
+      if (this.liste<%= classify(principalModelName) %>.length === this.nbRows) {
+        this.noAllData = false;
+      }
+      this.registeredRows = this.liste<%= classify(principalModelName) %>.map((el, index) => ({ index: index, data: el }));
+      this.has<%= classify(principalModelName) %>Data = !!this.liste<%= classify(principalModelName) %>.length;
+      this.updatePagination = false;
+      this.refreshListe<%= classify(principalModelName) %>();
+    }
+    <% } %>
   }
 
   private checkCriteria(): boolean {
@@ -191,7 +213,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     return true;
   }
 
-  private search<%= classify(principalModelName) %>(<% if (hasPagination) { %>nextRowId: string, <% } %>modeExport = false): void {
+  private search<%= classify(principalModelName) %>(<% if (hasPagination) { %>nextRowId: string, modeExport = false, sort: Sort = null<% } %>): void {
     if (!this.checkCriteria()) {
       return;
     }
@@ -209,10 +231,10 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
 
     this.liste<%= classify(principalModelName) %>Service
     .getLignes<%= classify(principalModelName) %>(
-        this.headerSelectorService.get('site'), this.headerSelectorService.get('do')
-        this.criteriaControls,
-        modeExport ? LIMIT_EXPORT_LISTE_<%= classify(principalModelName) %> : PAGE_SIZE_LISTE_<%= classify(principalModelName) %>,
-        <% if (hasPagination) { %>nextRowId<% } %>
+        this.headerSelectorService.get('site'), this.headerSelectorService.get('do'),
+        this.criteriaControls <% if (hasPagination) { %>,
+        modeExport || sort ? 0 : PAGE_SIZE_LISTE_<%= classify(principalModelName) %>,
+        nextRowId<% } %>
     )
     .pipe(takeUntil(this.destroy$))
     .subscribe(
@@ -221,7 +243,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
         <% if (hasLinkTo) { %>
         this.navigationRetourService.setRowSelectedLevelListPileNavigation(1, null);
         <% } %>
-        this.setData(res, modeExport);
+        this.setData(res<% if (hasPagination) { %>, modeExport, sort<% } %>);
         },
         () => {
         this.<%= camelize(componentName) %>Service.loading$.next(false);
@@ -230,7 +252,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     );
   }
 
-  private setData(res, modeExport = false) {
+  private setData(res<% if (hasPagination) { %>, modeExport = false, sort: Sort = null<% } %>) {
     if (!res.liste<%= classify(principalModelName) %>.length) {
       this.notificationService.push(
         '',
@@ -242,32 +264,7 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
       );
     }
 
-    if (modeExport) {
-      if (this.nbRows > LIMIT_EXPORT_LISTE_<%= classify(principalModelName) %>) {
-        this.notificationService.push(
-          '',
-          this.translate.instant('<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.NOTIFICATION.LIMIT_EXPORT', {
-            nbLimit: LIMIT_EXPORT_LISTE_<%= classify(principalModelName) %>,
-            nbMax: this.nbRows,
-          }),
-          Level.WARNING,
-          Type.FOOTER,
-          null,
-          TIMER_NOTIFICATION
-        );
-      }
-
-      const exportFile: ExportFile = {
-        filename: `Liste_<%= classify(principalModelName) %>_${moment(new Date()).format(EXPORT_FORMAT)}.csv`,
-        list: res.liste<%= classify(principalModelName) %>,
-      };
-      this.provider.loadListeToExport$.next(exportFile);
-      this.<%= camelize(componentName) %>Service.loading$.next(false);
-
-      return;
-    }
-
-    this.liste<%= classify(principalModelName) %> = this.liste<%= classify(principalModelName) %>.concat(res.liste<%= classify(principalModelName) %>);
+    this.liste<%= classify(principalModelName) %> = <% if (hasPagination) { %>sort || modeExport ? <% } %>res.liste<%= classify(principalModelName) %> <% if (hasPagination) { %>: this.liste<%= classify(principalModelName) %>.concat(res.liste<%= classify(principalModelName) %>)<% } %>;
 
     <% if (hasLinkTo) { %>
     this.navigationRetourService.setLevelInfoListPileNavigation(1, this.liste<%= classify(principalModelName) %>, this.nextRowId);
@@ -280,6 +277,8 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
       this.navigationRetourService.setNbRowsLevelListPileNavigation(1, this.nbRows);
       <% } %>
     }
+
+    this.noAllData = this.nbRows > this.liste<%= classify(principalModelName) %>.length;
 
     this.updatePagination = false;
 
@@ -403,15 +402,15 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
     }, 500);
   }
 
-  public ExportListe<%= classify(principalModelName) %>(): void {
-    <% if (hasPagination) { %> if (this.ligne<%= classify(principalModelName) %>Checked.length) { <% } %>
+  public exportListe<%= classify(principalModelName) %>(): void {
+    <% if (hasPagination) { %> if (this.ligne<%= classify(principalModelName) %>Checked.length || !this.noAllData) { <% } %>
       const exportFile: ExportFile = {
         filename: `Liste_<%= classify(principalModelName) %>_${moment(new Date()).format(EXPORT_FORMAT)}.csv`,
         list: <% if (!hasPagination) { %>this.ligne<%= classify(principalModelName) %>Checked.length ? <% } %>this.ligne<%= classify(principalModelName) %>Checked<% if (!hasPagination) { %> : this.liste<%= classify(principalModelName) %><% } %>,
       };
       this.provider.loadListeToExport$.next(exportFile);
     <% if (hasPagination) { %> } else { 
-      this.search<%= classify(principalModelName) %>('', true);
+      this.showConfirmSortOrExport(null, true);
     } <% } %>
   }
 
@@ -442,4 +441,27 @@ export class Liste<%= classify(principalModelName) %>Component implements OnInit
   public link2<%= classify(principalModelName) %>(ligne<%= classify(principalModelName) %>: <%= classify(principalModelName) %>Light): void {
     console.log('link2<%= classify(principalModelName) %>', ligne<%= classify(principalModelName) %>);
   }
+
+  <% if (hasPagination) { %>
+  private showConfirmSortOrExport(sort: Sort, modeExport: boolean): void {
+    const dialogRef = this.dialog.open(ReverseDialogValidationCancelComponent, {
+      panelClass: 'confirmation-dialog',
+      data: {
+        messageTitle: this.translate.instant(sort ? '<%= touppercase(underscore(moduleI18nName)) %>.DIALOG.SORT.TITLE' : '<%= touppercase(underscore(moduleI18nName)) %>.DIALOG.EXPORT.TITLE'),
+        messageContent: this.translate.instant(
+          sort ? '<%= touppercase(underscore(moduleI18nName)) %>.DIALOG.SORT.MESSAGE_CONFIRM_DIALOG' : '<%= touppercase(underscore(moduleI18nName)) %>.DIALOG.EXPORT.MESSAGE_CONFIRM_DIALOG'
+        ),
+      },
+      disableClose: true,
+    });
+    dialogRef
+      ?.afterClosed()
+      .pipe(take(1))
+      .subscribe(validation => {
+        if (validation) {
+          this.search<%= classify(principalModelName) %>(null, modeExport, sort);
+        }
+      });
+  }
+  <% } %>
 }
