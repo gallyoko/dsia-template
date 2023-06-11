@@ -220,7 +220,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
     }, 0);
 
     <% if (hasLinkTo) { %>
-    if (this.navigationRetourService.getCriteriaPileNavigation().length || this.fromLinkLevel1) {
+    if (this.navigationRetourService.getCriteriaPileNavigation().length<% if (hasLinkFrom) { %> || this.fromLinkLevel1<% } %>) {
       this.search();
     }
     <% } %>
@@ -235,7 +235,7 @@ export class Main<%= classify(componentName) %>Component implements OnInit, OnDe
       }
     });
 
-    this.criteriaDisabled = this.fromLinkLevel1 || this.fromLinkLevel2;
+    <% if (hasLinkFrom) { %> this.criteriaDisabled = this.fromLinkLevel1 || this.fromLinkLevel2;<% } %>
   }
   <% } %>
   /* Chargements des datas dans le différentes listes  */
