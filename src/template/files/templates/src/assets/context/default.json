@@ -1,0 +1,193 @@
+{
+  "<%= camelize(componentName) %><%= classify(principalModelName) %>": {
+    "criteriaField": [
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.KEY_FIELD",
+        "type": "text",
+        "fieldId": "uniqId",
+        "viewId": "uniqIdCriteria",
+        "isKeyField": true,
+        "order": 1,
+        "advanced": false,
+        "styles": {
+          "prefixIcon": "vpn_key"
+        }
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.MONO_LIST",
+        "type": "list",
+        "fieldId": "codeMono",
+        "isKeyField": false,
+        "order": 2,
+        "advanced": false,
+        "listOptions": {
+          "data": []
+        }
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DATE_FIELD",
+        "type": "date",
+        "fieldId": "dateDebut",
+        "viewId": "dateDebutCriteria",
+        "isKeyField": false,
+        "order": 3,
+        "advanced": false
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.HOUR_FIELD",
+        "type": "hour",
+        "fieldId": "heureDebut",
+        "viewId": "heureDebutCriteria",
+        "order": 4,
+        "isKeyField": false,
+        "disabled": false,
+        "advanced": false
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.MULTI_LIST",
+        "type": "listmulti",
+        "fieldId": "codeMulti",
+        "isKeyField": false,
+        "order": 5,
+        "advanced": false,
+        "listOptions": {
+          "data": []
+        }
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.POPIN_MONO_LIST",
+        "type": "list",
+        "fieldId": "codePopinMono",
+        "isKeyField": false,
+        "order": 6,
+        "advanced": false,
+        "listOptions": {
+          "listType": "dialog",
+          "dialogOptions": {
+            "title": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TITLE_POPIN_MONO",
+            "columns": [
+              {
+                "key": "code",
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CODE_POPIN_MONO"
+              },
+              {
+                "key": "libelle",
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.LABEL_POPIN_MONO"
+              }
+            ]
+          },
+          "data": []
+        }
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.POPIN_MULTI_LIST",
+        "type": "listmulti",
+        "fieldId": "codePopinMulti",
+        "isKeyField": false,
+        "order": 7,
+        "advanced": false,
+        "listOptions": {
+          "listType": "dialog",
+          "dialogOptions": {
+            "title": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TITLE_POPIN_MULTI",
+            "columns": [
+              {
+                "key": "code",
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CODE_POPIN_MULTI"
+              },
+              {
+                "key": "libelle",
+                "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.LABEL_POPIN_MULTI"
+              }
+            ]
+          },
+          "data": []
+        }
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TOGGLE_FIELD",
+        "type": "toggle",
+        "fieldId": "toggle",
+        "isKeyField": false,
+        "order": 8,
+        "advanced": true
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.DOUBLE_HOUR_FIELD",
+        "type": "doublehour",
+        "fieldId": "doubleHeureDebut",
+        "fieldId2": "doubleHeureFin",
+        "viewId": "doubleHeureDebutCriteria",
+        "viewId2": "doubleHeureFinCriteria",
+        "order": 9,
+        "isKeyField": false,
+        "advanced": true
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.ANORMAL_HOUR_FIELD",
+        "type": "anormalHour",
+        "fieldId": "anormalHour",
+        "isKeyField": false,
+        "order": 10,
+        "advanced": true
+      },
+      {
+        "label": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.CHECKBOX_FIELD",
+        "type": "checkbox",
+        "fieldId": "checkbox",
+        "isKeyField": false,
+        "order": 11,
+        "advanced": true
+      }
+    ],
+    "tabs": [
+      {
+        "fieldId": "general",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TAB1",
+        "label": "",
+        "order": 1
+      },
+      {
+        "fieldId": "<%= camelize(secondModelName) %>",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TAB2",
+        "label": "",
+        "order": 2
+      }
+    ],
+    "arrayHeader": [
+      {
+        "fieldId": "<%= camelize(principalModelKey) %>",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.<%= touppercase(underscore(principalModelKey)) %>",
+        "label": "",
+        "order": 1,
+        "minWidth": "60px",
+        "maxWidth": "auto"
+      }
+    ],
+    "detailLabels": [],
+    "criteria": []
+  },
+  "<%= camelize(componentName) %><%= classify(secondModelName) %>": {
+    "criteriaField": [],
+    "tabs": [
+      {
+        "fieldId": "tab1",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.TAB1",
+        "label": "",
+        "order": 1
+      }
+    ],
+    "arrayHeader": [
+      {
+        "fieldId": "uniqId",
+        "labelToTranslate": "<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.CONTEXT.UNIQ_ID",
+        "label": "",
+        "order": 1,
+        "minWidth": "60px",
+        "maxWidth": "auto"
+      }
+    ],
+    "detailLabels": [],
+    "criteria": []
+  }
+}
