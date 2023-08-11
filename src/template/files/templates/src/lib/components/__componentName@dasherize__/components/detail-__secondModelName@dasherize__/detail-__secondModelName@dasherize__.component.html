@@ -1,0 +1,62 @@
+<dsia-spinner [isLoading]="isLoading" message="{{ messageNotification | translate }}"> </dsia-spinner>
+
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span class="title-detail-listeN2">
+      <span>{{ title }}</span></span
+    >
+
+    <% if (secondModelCrud) { %>
+    <ng-container *ngIf="hasUpdateRights || hasCreationRights">
+      <button mat-stroked-button class="bouton-action" (click)="cancelDetail()" [disabled]="!<%= camelize(secondModelName) %>Changed">
+        {{ '<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.BUTTON.CANCEL' | translate }}
+      </button>
+
+      <button
+        mat-stroked-button
+        class="bouton-action"
+        *ngIf="hasUpdateRights || hasCreationRights"
+        (click)="modeCreate ? createLigne() : updateLigne()"
+        [disabled]="saveButtonDisabled || !<%= camelize(secondModelName) %>Changed"
+      >
+        {{ '<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.BUTTON.SAVE' | translate }}
+      </button>
+
+      <button
+        *ngIf="!modeUpdate && hasCreationRights"
+        mat-stroked-button
+        class="bouton-action"
+        (click)="newLigne()"
+        [disabled]="disabledButtonAdd"
+      >
+        {{ '<%= touppercase(underscore(moduleI18nName)) %>.<%= touppercase(underscore(componentName)) %>.BUTTON.CREATE' | translate }}
+      </button>
+    </ng-container>
+    <% } %>
+
+    <button mat-icon-button (click)="onCloseDetail<%= classify(secondModelName) %>()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-card class="detail-listeN2-card" [ngClass]="{ 'no-padding-bottom': selectedIndex === 1 || selectedIndex === 2 }">
+  <mat-card-content class="detail-listeN2-tabs-content" [ngClass]="{ 'container-general': selectedIndex === 0 }">
+    <mat-tab-group
+      #tabgroup
+      [animationDuration]="0"
+      [disableRipple]="true"
+      [selectedIndex]="selectedIndex"
+      [disablePagination]="true"
+      (selectedIndexChange)="selectedIndexChange($event)"
+      class="listeN2-tabs"
+    >
+      <mat-tab *ngFor="let tab of tabs" label="{{ tab.label }}" [disabled]="tab.disabled">
+        <lib-tab-general-detail-<%= dasherize(secondModelName) %>
+          *ngIf="tab.fieldId === 'general' && selectedIndex === 0"
+          [<%= camelize(secondModelName) %>]="<%= camelize(secondModelName) %>"
+          <% if (secondModelCrud) { %>[modeCreate]="modeCreate"<% } %>
+        ></lib-tab-general-detail-<%= dasherize(secondModelName) %>>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

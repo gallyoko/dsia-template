@@ -1,0 +1,177 @@
+{
+  "ROUTE": {
+    "generic": "Template",
+    "template": "Lecture seule",
+    "crud-simple": "CRUD simple",
+    "crud-complexe": "CRUD complexe"
+  },
+  "ONGLET": {
+    "<%= touppercase(underscore(componentName)) %>": "<%= capitalize(componentName) %>"
+  },
+  "CSF": {
+    "FILE_UPLOADER": {
+      "TEXT_INFO": "Glissez-déposez des fichiers, ou cliquer."
+    },
+    "CRITERIA": {
+      "BUTTON": {
+        "SEARCH": "Rechercher",
+        "RESET": "Réinitialiser",
+        "MORE": "Critères avancés"
+      }
+    },
+    "INPUTS": {
+      "BUTTON": {
+        "CANCEL": "Annuler",
+        "VALIDATE": "Valider",
+        "SEARCH": "Ouvrir",
+        "REINIT": "Réinitialiser"
+      },
+      "MESSAGE": {
+        "ERR01": "Erreur lors de la récupération des données de la liste"
+      },
+      "ERRORS": {
+        "NO_DATA": "Aucune données"
+      },
+      "DIALOG": {
+        "FILTER": {
+          "TOOLTIP": "Effectuer une saisie pour filtrer",
+          "PLACEHOLDER": "Filtrer"
+        },
+        "LABEL": {
+          "SELECT_ALL": "Tout sélectionner",
+          "CODE": "Code",
+          "LIBELLE": "Libellé",
+          "AUTHORISED": ""
+        },
+        "PAGINATOR": {
+          "EL_PER_PAGE": "enreg. par page",
+          "NEXT": "Page suivante",
+          "LAST": "Dernière page",
+          "PREV": "Page précédente",
+          "FIRST": "Première page"
+        }
+      }
+    },
+    "CUSTOM_MAT_TABLE": {
+      "REFRESH_LINK": "Rafraîchir",
+      "SETTINGS": "Paramètres",
+      "DIALOGS": {
+        "COLUMNS_SELECTION": {
+          "TITLE": "Affichage des colonnes",
+          "SUBTITLE": "Selectionner les colonnes à afficher",
+          "COLUMN_HEADER": "Colonnes",
+          "HIDE_COLUMN_LABEL": "Masquer la colonne",
+          "SHOW_COLUMN_LABEL": "Afficher la colonne",
+          "BUTTON": {
+            "CANCEL": "Annuler",
+            "SAVE": "Sauvegarder"
+          },
+          "ERRORS": {
+            "NO_DATA": "Aucunes colonnes à masquer"
+          }
+        }
+      },
+      "PLACEHOLDER": {
+        "LOADING": "Chargement..."
+      },
+      "BUTTONS": {
+        "LOAD_MORE": "Plus d'éléments"
+      },
+      "PAGINATION": {
+        "OF": "sur"
+      },
+      "MENUS": {
+        "DEFAULT_ITEM": "Aucunes actions disponibles",
+        "HIDE_COLUMN_MULTISELECT_LABEL": "Cacher la multisélection",
+        "SHOW_COLUMN_MULTISELECT_LABEL": "Afficher la multisélection",
+        "EXPORT_LABEL": "Exporter les données",
+        "HIDE_COLUMN_LABEL": "Afficher/Masquer les colonnes"
+      }
+    }
+  },
+  "<%= touppercase(underscore(moduleI18nName)) %>": {
+    "<%= touppercase(underscore(componentName)) %>": {
+      "TITLE": {
+        "FONCTION": "<%= capitalize(componentName) %>",
+        "CONFIRMATION": "Confirmation",
+        "FILENAME": "Liste_<%= tolowercase(underscore(principalModelName)) %>",
+        "NB_ROWS": "<%= principalModelName %>(s)"
+      },
+      "CONTEXT": {
+        "KEY_FIELD": "Champ clé",
+        "MONO_LIST": "Liste mono",
+        "DATE_FIELD": "Champ date",
+        "HOUR_FIELD": "Champ heure",
+        "MULTI_LIST": "Liste multi",
+        "POPIN_MONO_LIST": "Popin liste mono",
+        "POPIN_MULTI_LIST": "Popin liste multi",
+        "TOGGLE_FIELD": "Toggle",
+        "DOUBLE_HOUR_FIELD": "Champ double heure",
+        "ANORMAL_HOUR_FIELD": "Champ heure mn > 59",
+        "CHECKBOX_FIELD": "Champ checkbox",
+        "TITLE_POPIN_MONO": "Sélectionner une ligne mono et valider",
+        "TITLE_POPIN_MULTI": "Sélectionner des lignes multi et valider",
+        "CODE_POPIN_MONO": "Code mono",
+        "LABEL_POPIN_MONO": "Libellé mono",
+        "CODE_POPIN_MULTI": "Code multi",
+        "LABEL_POPIN_MULTI": "Libellé multi",
+        "<%= touppercase(underscore(principalModelKey)) %>": "<%= capitalize(principalModelKey) %>",
+        "TEXT": "Texte",
+        "NUMBER": "Nombre",
+        "DATE": "Date",
+        "HOUR": "Heure",
+        "BOOLEAN": "Booléen",
+        "INFO_SUP": "Informations supplémentaires",
+        "TAB1": "Onglet 1",
+        "TAB2": "Onglet 2"
+      },
+      "GROUPS": {
+        "TITLE1": "Titre groupe 1",
+        "TITLE2": "Titre groupe 2",
+        "TITLE3": "Titre groupe 3"
+      },
+      "NOTIFICATION": {
+        "CURRENT_LOADING": "Chargement en cours...",
+        "CURRENT_SEARCHING": "Recherche en cours...",
+        "CURRENT_DELETING": "Suppression en cours...",
+        "CURRENT_SAVING": "Sauvegarde en cours...",
+        "SUCCESS_DELETE": "L'élément a bien été supprimé.",
+        "SUCCESS_DELETE_MULTI": "Les éléments ont bien été supprimés.",
+        "ERROR_DELETE": "Erreur lors de la suppression de l'élément.",
+        "ERROR_DELETE_MULTI": "Erreur lors de la suppression des éléments.",
+        "SUCCESS_CREATE": "L'élément a bien été créé.",
+        "ERROR_CREATE": "Erreur lors de la création de l'élément.",
+        "SUCCESS_UPDATE": "L'élément a bien été mis à jour.",
+        "ERROR_UPDATE": "Erreur lors de la mise à jour de l'élément.",
+        "ERROR_INIT_DATA": "Erreur lors du chargement des listes de données",
+        "ERROR_DETAIL": "Erreur lors de la récupération du détail de l'élément",
+        "ERROR_SEARCH": "Erreur lors de la recherche",
+        "NO_RESULT_SEARCH": "Aucun résultat ne correspond à votre demande",
+        "ERROR_REQUIRED_CRITERIA": "Le ou les champs obligatoires ne sont pas renseignés",
+        "ERROR_LOAD_LIST": "Erreur lors du chargement de la liste"
+      },
+      "MESSAGE_CONFIRM_DELETE": "Etes-vous certain de vouloir supprimer cet élément ?",
+      "MESSAGE_CONFIRM_DELETE_MULTI": "Etes-vous certain de vouloir supprimer ces éléments ?"
+    },
+    "<%= touppercase(underscore(secondModelName)) %>": {
+      "TITLE": {
+        "FILENAME": "Liste_<%= tolowercase(underscore(secondModelName)) %>"
+      },
+      "DETAIL": {
+        "<%= touppercase(underscore(secondModelKey)) %>": "<%= capitalize(secondModelKey) %>"
+      }
+    },
+    "MESSAGE": {
+      "CONFIRM_DIALOG": "Vos modifications vont être perdues. Souhaitez-vous abandonner ?",
+      "INIT_SCREEN_READONLY": "Veuillez effectuer une recherche pour afficher des éléments",
+      "INIT_SCREEN_CRUD": "Veuillez effectuer une recherche pour afficher des éléments ou en créer un"
+    },
+    "BUTTON": {
+      "CREATE": "Créer",
+      "CANCEL": "Annuler",
+      "SAVE": "Enregistrer",
+      "DELETE": "Supprimer",
+      "ACTIONS": "Actions"
+    }
+  }
+}

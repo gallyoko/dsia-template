@@ -1,0 +1,61 @@
+{
+  "high-tech": {
+    "codeSite": ["EDM", "MIS", "COP", "MOI", "LAG"],
+    "codeDo": ["BELL"],
+    "fonction": []
+  },
+  "retail": {
+    "codeSite": [
+      "PP4",
+      "D34",
+      "D37",
+      "PP5",
+      "PP6",
+      "D35",
+      "D39",
+      "D36",
+      "D17",
+      "PP2",
+      "D31",
+      "D40",
+      "D32",
+      "D07",
+      "D41",
+      "D16",
+      "D26",
+      "D30",
+      "D24",
+      "D27",
+      "D25",
+      "PP1",
+      "D02",
+      "D28",
+      "PP3",
+      "D29",
+      "D33",
+      "P02"
+    ],
+    "codeDo": ["DRIV", "OOSH"],
+    "fonction": []
+  },
+  "cosmetique": {
+    "codeSite": ["GAC", "LCA"],
+    "codeDo": [],
+    "fonction": []
+  },
+  "frais": {
+    "codeSite": ["BRE", "L04", "GIV", "JOR", "WIS", "ARG", "LMD", "LME", "MON", "VIE"],
+    "codeDo": ["YOPL"],
+    "fonction": []
+  },
+  "industrie": {
+    "codeSite": ["MVB", "ROU", "MVA"],
+    "codeDo": ["CAND"],
+    "fonction": []
+  },
+  "flux-tendus": {
+    "codeSite": ["P09", "P12", "P01", "P15", "P03", "P05", "P04", "P08", "P06", "P07"],
+    "codeDo": [],
+    "fonction": []
+  }
+}

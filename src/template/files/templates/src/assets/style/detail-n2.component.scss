@@ -1,0 +1,116 @@
+:host {
+  ::ng-deep mat-toolbar-row {
+    border-top-left-radius: 7px;
+  }
+
+  ::ng-deep mat-tab-group mat-tab-header.mat-tab-header {
+    div.mat-tab-label {
+      border: none !important;
+    }
+  }
+
+  .bouton-action {
+    margin-right: var(--padding);
+    border-color: inherit;
+    color: inherit;
+
+    &:hover:not([disabled]) {
+      color: var(--primary);
+    }
+
+    &[disabled] {
+      color: var(--primary);
+    }
+  }
+}
+
+.detail-listeN2-card {
+  height: calc(100% - 64px);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  padding: 0;
+}
+
+.detail-listeN2-tabs-content {
+  height: 100%;
+}
+
+.listeN2-tabs {
+  height: 100%;
+  ::ng-deep mat-tab-body {
+    overflow-y: auto;
+    width: 100%;
+    ::ng-deep div.mat-tab-body-content {
+      padding: 0 var(--padding);
+    }
+  }
+}
+
+::ng-deep div.mat-tab-label {
+  width: 50%;
+  background-color: var(--primary-300);
+}
+
+::ng-deep mat-tab-group mat-tab-header.mat-tab-header {
+  background-color: var(--primary-300);
+
+  .mat-tab-label {
+    .mat-tab-label-active {
+      background-color: white;
+    }
+
+    &:first-child {
+      border-top-left-radius: 0;
+    }
+    &:last-child {
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+mat-toolbar-row {
+  text-transform: none;
+
+  .title-detail-listeN2 {
+    font-size: var(--paragraph-font-size);
+    font-weight: 700;
+    text-align: left;
+  }
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar-thumb {
+  background: var(--primary-700);
+  border-radius: 10px;
+}
+
+::ng-deep div.mat-tab-body-content::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-900);
+}
+
+::ng-deep div.mat-tab-body-content {
+  height: 100%;
+}
+
+::ng-deep div.mat-tab-body-wrapper {
+  height: 100%;
+}
+
+.container-general {
+  ::ng-deep div.mat-tab-body-content {
+    overflow-y: auto !important;
+  }
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}

@@ -1,0 +1,173 @@
+{
+  "ROUTE": {
+    "commande": "Commande",
+    "forecast-integrate": "Intégration volumes prévisionnels",
+    "portfolio-tracking": "Suivi portefeuille commandes"
+  },
+  "CSF": {
+    "FILE_UPLOADER": {
+      "TEXT_INFO": "Glissez-déposez des fichiers, ou cliquer."
+    },
+    "CRITERIA": {
+      "BUTTON": {
+        "SEARCH": "Search",
+        "RESET": "Reset"
+      }
+    },
+    "INPUTS": {
+      "BUTTON": {
+        "CANCEL": "Annuler",
+        "VALIDATE": "Valider",
+        "SEARCH": "Ouvrir"
+      },
+      "MESSAGE": {
+        "ERR01": "Erreur lors de la récupération des données de la liste"
+      },
+      "ERRORS": {
+        "NO_DATA": "Aucune données"
+      },
+      "DIALOG": {
+        "FILTER": {
+          "TOOLTIP": "Effectuer une saisie pour filtrer",
+          "PLACEHOLDER": "Filtrer"
+        },
+        "LABEL": {
+          "SELECT_ALL": "Tout sélectionner",
+          "CODE": "Code",
+          "LIBELLE": "Libellé",
+          "AUTHORISED": ""
+        },
+        "PAGINATOR": {
+          "EL_PER_PAGE": "enreg. par page",
+          "NEXT": "Page suivante",
+          "LAST": "Dernière page",
+          "PREV": "Page précédente",
+          "FIRST": "Première page"
+        }
+      }
+    }
+  },
+  "COMMAND": {
+    "FORECAST": {
+      "INTEGRATE": {
+        "TOOLBAR_TITLE": "Intégration volumes prévisionnels",
+        "SELECT_FILES_TITLE": "Séléction de fichiers",
+        "SELECT_FILES_SUBTITLE": "Veuillez sélectionner un ou plusieurs fichier(s)",
+        "NO_FILE_LOADED": "Aucun fichier chargé",
+        "FILE_LIST_LOADED": "Liste des fichiers chargés",
+        "FILENAME": "Nom du fichier",
+        "FILESIZE": "Taille du fichier",
+        "LAST_UPDATE": "Dernières modifications",
+        "BYTES": "octects",
+        "KBYTES": "Ko",
+        "MBYTES": "Mo",
+        "SELECT_CSV_FILE": "Veuillez fournir un fichier au format csv"
+      },
+      "BUTTON": {
+        "DELETE_SELECTED_LINE": "Supprimer les lignes sélectionnées",
+        "IMPORT": "Importer {{nbFile}} fichier(s)"
+      },
+      "NOTIFICATIONS": {
+        "CANCEL_SUCCESS": "Les modifications ont été annulées",
+        "INTEGRATE_SUCCESS": "{{done}} commandes(s) intégrée(s)"
+      }
+    },
+    "PORTFOLIO_TRACKING": {
+      "TOOLBAR_TITLE": "Suivi portefeuille commandes",
+      "TOOLTIP": {
+        "HIDE_FILTER": "Cacher les critères",
+        "SHOW_FILTER": "Afficher les critères"
+      },
+      "BUTTON_SHOW_DETAIL": "Voir le détail",
+      "CRITERIA": {
+        "START_DATE": "Date de début",
+        "END_DATE": "Date de fin",
+        "DIMENSION": "Dimension",
+        "ACTIVITY": "Activité",
+        "WITHDRAWAL_PLACE": "Lieu de retrait",
+        "CIRCUIT": "Tournée",
+        "CIRCUIT_GROUP": "Groupe de tournée",
+        "TYPE_EXPEDITION": "Type d'expédition",
+        "BLOCAGE_MAD": "Blocage Mad",
+        "BUTTON": {
+          "SEARCH": "Rechercher"
+        },
+        "TOOLTIP_SEARCH_ERROR": "veuillez renseigner une date de début et de fin"
+      },
+      "NOTIFICATION_DEPTH_SEARCH_WARNING": "La profondeur maximale de recherche est de {{profondeurMax}}h. Veuillez revoir les critères.",
+      "RESULT": {
+        "NO_DATA_AVAILABLE_FOR_CRITERIA": "Aucune donnée disponible pour les critères sélectionnés",
+        "DEPARTURE_SLOTS": "Créneaux des départs",
+        "BILLFOLD": "Portefeuille",
+        "NOT_LAUNCHED": "Non lancé",
+        "LAUNCHED": "Lancé",
+        "IN_PREPARATION": "En cours prépa",
+        "TO_VENTILATE": "A ventiler",
+        "VENTILATION_OK": "Ventilation OK",
+        "LOADING": "Chargement en cours",
+        "LOADED": "Chargé",
+        "SENT": "Expédié"
+      },
+      "MODAL": {
+        "NO_DETAIL": "Aucun détail à afficher",
+        "NOT_LAUNCHED_PREPARATION_TITLE": "Préparations non lancées",
+        "NUM_COMMAND": "N° commande",
+        "REF_COMMAND_DO": "Réf. cde. DO",
+        "NUM_REGROUPEMENT": "N° regroupement",
+        "START_HOUR": "Heure de départ",
+        "CIRCUIT": "Tournée",
+        "WITHDRAWAL_PLACE": "Lieu de retrait",
+        "NB_COMMAND_LINE": "Nb de lignes",
+        "NB_SUPPORT_PREPA": "Nb support de prép",
+        "UVC_QUANTITY": "Qté UVC",
+        "IN_PREPARATION_TITLE": "Préparations en cours",
+        "LAUNCHED_PREPARATION_TITLE": "Préparations lancées",
+        "NUM_PREPARATION": "N° préparation",
+        "AREA": "Zone",
+        "SUPPORT_TO_VENTILATE_TITLE": "Supports à ventiler",
+        "SUPPORT_VENTILATE_OK_TITLE": "Supports ventilés",
+        "NUM_SUPPORT_PREPA": "N° support prep.",
+        "PALLET_LOCATION": "Lieu palette",
+        "NUM_SUPPORT_EXPEDITION": "N° supp. d'expéd.",
+        "LOADED_PREPARATION_TITLE": "Supports chargés",
+        "LOADING_PREPARATION_TITLE": "Supports en cours de chargement",
+        "SENT_PREPARATION_TITLE": "Supports expédiés",
+        "SLOT": "Créneau"
+      }
+    },
+    "VALIDATION": "Voulez-vous valider la mise à jour?",
+    "TITRE_DE_VALIDATION": "Enregistrer",
+    "TITRE_ANNULATION": "ANNULER",
+    "ANNULER": "Voulez-vous annuler la mis à jour? ",
+    "EXPORT_WS_ASYNCHRONE": {
+      "CRITERIA": {
+        "TYPE_NOTIFICATION": "Type d'export",
+        "REF_OWNER_EXTERNE": "Référence métier",
+        "STATE": "Statut",
+        "LIBELLE_ANOMALIE": "Motif",
+        "DATE_DEBUT": "Date de début",
+        "DATE_FIN": "Date de fin",
+        "RELAUNCH_NUMBER": "Nombre de relances",
+        "DTCREATE": "Date de création",
+        "DTLASTSET": "Date de mise à jour",
+        "SITE_TITLE": "Choix du site",
+        "LIBELLE_SITE": "Libellé du site",
+        "CODE_SITE": "Code site"
+      },
+      "RELANCE": "Relance",
+      "DIALOG_RELANCE_TITLE": "Relance manuelle",
+      "MESSAGE": {
+        "CRITERIA_LOADING": "Loading criteria...",
+        "SEARCH_LOADING": "Search in progress...",
+        "EXPORT_CONFIRMATION_DIALOG": "The selected rows are going to be launched. Do you want to continue?\n",
+        "EXPORT_REUSSI_DIALOG": "Warning: a selected line is in the transmitted/refused status.\n",
+        "EXPORT_DEJA_RELANCE_DIALOG": "Warning: a line selected has already been restarted.\n"
+      },
+      "NOTIFICATION": {
+        "ERROR_SEARCH": "Erreur lors de la recherche",
+        "ERROR_LAUNCH_CRITERIA_EMPTY": "Merci de sélectionner une ligne à relancer",
+        "ERROR_CRITERIA": "Erreur lors de la récupération des données d'initialisation des critères"
+      }
+    }
+  }
+}
